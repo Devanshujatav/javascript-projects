@@ -21,6 +21,9 @@ const el = {
     step : document.getElementById("step")
 }
 
+// ---- 3. RENDER ----
+// render() is the ONLY function allowed to touch the DOM.
+// It reads state and makes the page match it. Nothing else writes to the DOM directory.
 function render(){
     el.value.textContent = state.value;
 
@@ -29,8 +32,57 @@ function render(){
     el.inc.disabled = state.value + state.step > 100;
     el.dec.disabled = state.value - state.step < 100;
 
-    
+    el.status.textContent = state.value === MAX ? 'hit the ceiling' : state.value === MIN ? 'hit the floor' : '\u00A0'; 
+
+    localStorage.setItem('Counter:value' , state.value);
 }
+
+
+//---- 4. ACTIONS ----
+// These are the only functions allowed to CHANGE state.
+// Every action ends by calling render(). This is the pattern:
+//   event happens -> action mutates state -> render() syncs the DOM.   
+function increment(){
+    state.value = Math.min(MAX , state.value + state.step);
+    render();
+}
+
+function decrement(){
+    state.value = Math.max(MIN , state.value - state.step);
+    render();
+}
+
+function reset(){
+    state.value = 0;
+    render();
+}
+
+function setStep(newStep){
+    state.step = newStep;
+    render();
+}
+
+// ---- 5. EVENTS ----
+// Listeners never touch the DOM or compute values themselves.
+// Their only job is: "user did X" -> call the matching action.
+el.inc.addEventListener('click' , increment());
+el.dec.addEventListener('click' , decrement());
+el.reset.addEventListener('click' , reset());
+el.step.addEventListener('change' , (e) => setStep(e.target.value));
+
+document.addEventListener('keydown' , (e) => {
+    if (e.key === 'ArrowUp') increment();
+    if (e.key === 'ArrowDown') decrement();
+});
+
+// ---- 6. INITIAL PAINT ----
+render();
+
+
+
+
+
+
 
 
 
