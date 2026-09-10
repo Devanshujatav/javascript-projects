@@ -1,0 +1,37 @@
+:root{
+    --bg: #14181f;
+    --card: #1b212b;
+    --card-edge: #262e3b;
+    --amber: #ffb454;
+    --amber-dim: #8a6a3a;
+    --text-soft: #8891a1;
+    --text-body: #cfd5e0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    background-image: radial-gradient(circle at 50% 0%, rgba(255, 180, 84, 0.06), transparent 60%);
+    font-family: 'Manrope', sans-serif;
+    padding: 24px;
+}
+
+.clock-card{
+    width: min(420px , 100%);
+    background: var(--card);
+    border: 1px solid var(--card-edge);
+    border-radius: 18px;
+    padding: 36px 32px 28px;
+    box-shadow:  0 30px 60px -25px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    text-align: center;
+}
+
