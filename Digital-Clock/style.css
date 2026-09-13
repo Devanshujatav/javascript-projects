@@ -35,3 +35,78 @@ body{
     text-align: center;
 }
 
+.greeting{
+    margin: 0 0 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-soft);
+    letter-spacing: 0.02px;
+}
+
+.display{
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 12px;
+}
+
+.time{
+    font-family:  'Share Tech Mono', monospace;
+    font-size: clamp(2.6rem, 11vw, 3.6rem);
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 18px rgba(255, 180, 84, 0.35);
+    font-variant-numeric: tabular-nums;
+}
+
+.format-toggle{
+    position:absolute;
+    right: 0;
+    bottom: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--amber-dim);
+    background: transparent;
+    border: 1px solid var(--amber-dim);
+    border-radius: 999px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: color 0.2s ease , border-color 0.2s ease;
+}
+
+.format-toggle:hover,.format-toggle:focus-visible{
+    color: var(--amber);
+    border-color: var(--amber);
+    outline: none;
+}
+
+.date{
+    margin: 14px 0 0;
+    font-size: 0.95rem;
+    color: var(--text-body);
+}
+
+.segment-strip{
+    margin-top: 26px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.segment-strip span{
+    width: 26px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--card-edge);
+}
+
+@media (prefers-reduced-motion: no-preference){
+    .time{
+        transition: text-shadow 0.3s ease;
+    }
+}
+
+
+
