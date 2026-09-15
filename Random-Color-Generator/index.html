@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palette Forge — Random Color Generator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="page">
+        <header class="site-header">
+            <h1>Palette Forge</h1>
+            <p class="subtitle">Generate a color in hex, RGB or HSL — one click to copy.</p>
+        </header>
+
+        <main class="card">
+            <div class="swatch" id="swatch"></div>
+
+            <div class="code-plate">
+                <div class="format-toggle" role="group" aria-label="Color Format">
+                    <button type="button" class="format-btn active" data-format="hex">Hex</button>
+                    <button type="button" class="format-btn" data-format="rgb">RGB</button>
+                    <button type="button" class="format-btn" data-format="hsl">HSL</button>
+                </div>
+
+                <div class="code-row">
+                    <code id="colorCode">#000000</code>
+                    <button type="button" id="copyBtn" class="copy-btn">Copy</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="controls">
+            <button type="button" id="generateBtn">Generate Color</button>
+            <p class="hint">Press <kbd>space</kbd> or <kbd>G</kbd> to generate</p>
+        </div>
+
+        <section class="histroy" aria-label="recently generated Colors">
+            <h2>Recent Colors</h2>
+            <div class="histroy-strip" id="histroy-strip"></div>
+        </section>
+    </div>    
+</body>
+</html>
