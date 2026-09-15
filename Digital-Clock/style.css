@@ -63,7 +63,7 @@ body{
 .format-toggle{
     position:absolute;
     right: 0;
-    bottom: 10px;
+    bottom: -38px;
     font-family: 'Manrope', sans-serif;
     font-size: 0.7rem;
     font-weight: 700;
